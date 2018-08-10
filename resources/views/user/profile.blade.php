@@ -1,1 +1,1 @@
-<h3>Halo {{ $user->name }}</h3>
+<h3>Halo {{ $user->name }} No. Passport {{ $user->passport->no_pass }}</h3>

@@ -1,0 +1,1 @@
+<h3>{{ $passport->no_pass }} Passport ini milik ini {{ $passport->user->name }}</h3>

@@ -14,3 +14,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('user/{id}', 'UserController@show');
+Route::get('passport/{id}', 'UserController@showPassport');
