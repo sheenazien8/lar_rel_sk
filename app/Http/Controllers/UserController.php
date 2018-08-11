@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Passport;
+use App\Models\Forum;
 use App\Models\Lesson;
+use App\Models\Passport;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
@@ -27,6 +28,11 @@ class UserController extends Controller
     public function showLessons($id)
     {
         return view('user.lesson', ['lesson' => Lesson::findOrFail($id)]);
+    }
+
+    public function showForums($id)
+    {
+        return view('user.forum', ['forum' => Forum::findOrFail($id)]);
     }
 
 }
