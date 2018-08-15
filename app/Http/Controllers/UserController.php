@@ -82,7 +82,24 @@ class UserController extends Controller
             "judul" => "test forum dengan judul terbaru",
             "body" => "test body baru atau isi yang terbaru banget"
         ]);
-        
+    }
+    public function updateForum()
+    {
+        // update forum menggunakan relation namun method ini hanya berlaku untuk model yang mempunyai belongsto
+        $forum = Forum::find(3);
+        // merubah user idnya menjadi 1
+        $user = User::find(1);
+
+        $forum->user()->associate($user);
+        $forum->save();
+    }
+
+    public function deleteForum()
+    {
+        $forum = Forum::find(3);
+        // menghapus relasi forum dengan user
+        $forum->user()->dissociate();
+        $forum->save();   
     }
 
 }

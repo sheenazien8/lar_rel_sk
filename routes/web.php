@@ -16,5 +16,11 @@ Route::get('/', function () {
 Route::get('user/{id}', 'UserController@show');
 Route::get('passport/{id}', 'UserController@showPassport');
 Route::get('lessons/{id}', 'UserController@showLessons');
+
 Route::get('forums/create', 'UserController@createForum');
+
+Route::get('forums/update', 'UserController@updateForum');
+Route::get('forums/delete', 'UserController@deleteForum');
+
+
 Route::get('forums/{id}', 'UserController@showForums');
