@@ -28,8 +28,10 @@ class UserController extends Controller
         /*
         has many through merelasikan table yang tidak mempunyai hubungan langsung
         mengaakses forums yang dipunyai oleh user id satu
-        dd(User::find($id)->forums);
         */
+        /*akses forum menggunakan id yang dipunyai user*/
+        dd(User::find($id)->forums);
+        
 
         /*$forums = User::withCount('forums')->get();
         foreach ($forums as $forum) {
@@ -38,7 +40,6 @@ class UserController extends Controller
             withcount untuk menghitung jumlah value yang dimiliki oleh ID
 
         */
-        dd('mati');
         $user = User::with('forums.tags', 'lessons')->where('id',$id)->first();
 
         return view('user.profile', ['user' => $user]);
