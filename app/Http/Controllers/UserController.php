@@ -30,7 +30,7 @@ class UserController extends Controller
         mengaakses forums yang dipunyai oleh user id satu
         */
         /*akses forum menggunakan id yang dipunyai user*/
-        dd(User::find($id)->forums);
+        // dd(User::find($id)->forums);
         
 
         /*$forums = User::withCount('forums')->get();
@@ -57,6 +57,32 @@ class UserController extends Controller
     public function showForums($id)
     {
         return view('user.forum', ['forum' => Forum::findOrFail($id)]);
+    }
+
+    public function createForum()
+    {
+        // inserting relation method
+        // $forum = [
+        //     new Forum([
+        //             "judul" => "test forum dengan judul baru1",
+        //             "body" => "test body baru atau isi yang baru banget1"
+        //         ]),
+        //     new Forum([
+        //             "judul" => "test forum dengan judul baru2",
+        //             "body" => "test body baru atau isi yang baru banget2"
+        //         ]),
+        //     new Forum([
+        //             "judul" => "test forum dengan judul baru3",
+        //             "body" => "test body baru atau isi yang baru banget3"
+        //         ]),
+        // ];
+
+        $user = User::find(2);
+        $user->forums()->create([
+            "judul" => "test forum dengan judul terbaru",
+            "body" => "test body baru atau isi yang terbaru banget"
+        ]);
+        
     }
 
 }
