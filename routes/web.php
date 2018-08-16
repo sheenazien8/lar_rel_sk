@@ -19,6 +19,8 @@ Route::get('passport/{id}', 'UserController@showPassport');
 // many to many relation
 Route::get('lessons/create', 'UserController@createLessons');
 Route::get('lessons/delete', 'UserController@deleteLessons');
+Route::get('lessons/update', 'UserController@updateLessons');
+Route::get('lessons/sync', 'UserController@syncLessons');
 Route::get('lessons/{id}', 'UserController@showLessons');
 
 // Insert realtion

@@ -108,7 +108,7 @@ class UserController extends Controller
     {   
         $user = User::find(1);
         /*attach untuk create many to many*/
-        $user->lessons()->attach(3);
+        $user->lessons()->attach(4);
     }
 
     public function deleteLessons()
@@ -116,6 +116,25 @@ class UserController extends Controller
         $user = User::find(1);
         /*attach untuk create many to many*/
         $user->lessons()->detach(3);
+    }
+
+    public function updateLessons()
+    {
+        $user = User::find(1);
+        $data = [
+            'data' => 'tulang'
+        ];
+        /*Update existing pivot*/
+        $user->lessons()->updateExistingPivot(2, $data);
+    }
+
+    public function syncLessons()
+    {
+        $user = User::find(1);
+        $data = [1,2 ];
+
+        /*Sync method dia melihat apasih id yang nggak ada dari array yang tersedia kalau ada maka di hapus*/
+        $user->lessons()->sync($data);
     }
 
 }
