@@ -96,10 +96,26 @@ class UserController extends Controller
 
     public function deleteForum()
     {
+        // delete forum menggunakan relation namun method ini hanya berlaku untuk model yang mempunyai belongsto
         $forum = Forum::find(3);
         // menghapus relasi forum dengan user
         $forum->user()->dissociate();
-        $forum->save();   
+        $forum->save();
+    }
+
+    /*Hanya berlaku untuk many to many*/
+    public function createLessons()
+    {   
+        $user = User::find(1);
+        /*attach untuk create many to many*/
+        $user->lessons()->attach(3);
+    }
+
+    public function deleteLessons()
+    {   
+        $user = User::find(1);
+        /*attach untuk create many to many*/
+        $user->lessons()->detach(3);
     }
 
 }
